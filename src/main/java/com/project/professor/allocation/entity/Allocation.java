@@ -3,6 +3,7 @@ package com.project.professor.allocation.entity;
 import java.sql.Time;
 import java.time.DayOfWeek;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +14,11 @@ public class Allocation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(name = "Day", nullable = false)
 	private DayOfWeek day;
+	@Column(name = "Start", nullable = false)
 	private Time start;
+	@Column(name = "End", nullable = false)
 	private Time end;
 
 	public Long getId() {

@@ -8,6 +8,11 @@ import javax.persistence.Id;
 
 @Entity
 public class Department {
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + "]";
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

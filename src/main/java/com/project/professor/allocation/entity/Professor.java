@@ -21,6 +21,11 @@ public class Professor {
 	@JoinColumn(nullable = false)
 	private Department department;
 
+	@Override
+	public String toString() {
+		return "Professor [id=" + id + ", cpf=" + cpf + ", name=" + name + ", department=" + department + "]";
+	}
+
 	public Department getDepartment() {
 		return department;
 	}

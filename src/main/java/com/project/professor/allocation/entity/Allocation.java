@@ -12,6 +12,12 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Allocation {
+	@Override
+	public String toString() {
+		return "Allocation [id=" + id + ", day=" + day + ", start=" + start + ", end=" + end + ", professor="
+				+ professor + ", course=" + course + "]";
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

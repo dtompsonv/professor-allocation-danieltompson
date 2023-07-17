@@ -23,45 +23,45 @@ public class ProfessorRepositoryTest {
 	ProfessorRepository professorRepository;
 
 	@Test
-	void findAll() {
+	public void findAll() {
 		List<Professor> profes = professorRepository.findAll();
 		System.out.println(profes);
 	}
 
 	@Test
-	void findById() {
+	public void findById() {
 		Long id = 1l;
 		Optional<Professor> profes = professorRepository.findById(id);
 		Professor prf = profes.orElse(null);
 		System.out.println(prf);
 	}
-	
+
 	@Test
-	void create() {
+	public void create() {
 		Professor prof1 = new Professor();
 		prof1.setName("Test");
 		prof1.setId(null);
 		Professor prof2 = professorRepository.save(prof1);
-		System.out.println(prof2);	
+		System.out.println(prof2);
 	}
-	
+
 	@Test
-	void update() {
+	public void update() {
 		Professor prof1 = new Professor();
 		prof1.setName("Test2");
 		prof1.setId(1l);
 		Professor prof2 = professorRepository.save(prof1);
-		System.out.println(prof2);		
+		System.out.println(prof2);
 	}
-	
+
 	@Test
-	void deleteById() {
+	public void deleteById() {
 		Long id = 1l;
 		professorRepository.deleteById(id);
 	}
-	
+
 	@Test
-	void deleteAll() {
+	public void deleteAll() {
 		professorRepository.deleteAllInBatch();
 	}
 }

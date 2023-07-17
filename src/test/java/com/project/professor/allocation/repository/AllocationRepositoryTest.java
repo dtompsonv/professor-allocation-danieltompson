@@ -23,13 +23,13 @@ public class AllocationRepositoryTest {
 	AllocationRepository allocationRepository;
 
 	@Test
-	void findAll() {
+	public void findAll() {
 		List<Allocation> alloc = allocationRepository.findAll();
 		System.out.println(alloc);
 	}
 
 	@Test
-	void findById() {
+	public void findById() {
 		Long id = 1l;
 		Optional<Allocation> alloc = allocationRepository.findById(id);
 		Allocation all = alloc.orElse(null);
@@ -37,7 +37,7 @@ public class AllocationRepositoryTest {
 	}
 
 	@Test
-	void create() {
+	public void create() {
 		Allocation alloc1 = new Allocation();
 		alloc1.setName("Test");
 		alloc1.setId(null);
@@ -46,7 +46,7 @@ public class AllocationRepositoryTest {
 	}
 
 	@Test
-	void update() {
+	public void update() {
 		Allocation alloc1 = new Allocation();
 		alloc1.setName("Test2");
 		alloc1.setId(1l);
@@ -55,13 +55,13 @@ public class AllocationRepositoryTest {
 	}
 
 	@Test
-	void deleteById() {
+	public void deleteById() {
 		Long id = 1l;
 		allocationRepository.deleteById(id);
 	}
 
 	@Test
-	void deleteAll() {
+	public void deleteAll() {
 		allocationRepository.deleteAllInBatch();
 	}
 }

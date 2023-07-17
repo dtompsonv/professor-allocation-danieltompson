@@ -23,13 +23,13 @@ public class CourseRepositoryTest {
 	CourseRepository courseRepository;
 
 	@Test
-	void findAll() {
+	public void findAll() {
 		List<Course> course = courseRepository.findAll();
 		System.out.println(course);
 	}
 
 	@Test
-	void findById() {
+	public void findById() {
 		Long id = 1l;
 		Optional<Course> course = courseRepository.findById(id);
 		Course crs = course.orElse(null);
@@ -37,7 +37,7 @@ public class CourseRepositoryTest {
 	}
 
 	@Test
-	void create() {
+	public void create() {
 		Course crs1 = new Course();
 		crs1.setName("Test");
 		crs1.setId(null);
@@ -46,7 +46,7 @@ public class CourseRepositoryTest {
 	}
 
 	@Test
-	void update() {
+	public void update() {
 		Course crs1 = new Course();
 		crs1.setName("Test2");
 		crs1.setId(1l);
@@ -55,13 +55,13 @@ public class CourseRepositoryTest {
 	}
 
 	@Test
-	void deleteById() {
+	public void deleteById() {
 		Long id = 1l;
 		courseRepository.deleteById(id);
 	}
 
 	@Test
-	void deleteAll() {
+	public void deleteAll() {
 		courseRepository.deleteAllInBatch();
 	}
 }

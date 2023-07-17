@@ -23,45 +23,45 @@ public class DepartmentRepositoryTest {
 	DepartmentRepository departmentRepository;
 
 	@Test
-	void findAll() {
+	public void findAll() {
 		List<Department> depart = departmentRepository.findAll();
 		System.out.println(depart);
 	}
-	
+
 	@Test
-	void findById() {
+	public void findById() {
 		Long id = 1l;
 		Optional<Department> depart = departmentRepository.findById(id);
 		Department dpt = depart.orElse(null);
 		System.out.println(dpt);
 	}
-	
+
 	@Test
-	void create() {
+	public void create() {
 		Department dpt1 = new Department();
 		dpt1.setName("Test");
 		dpt1.setId(null);
 		Department dpt2 = departmentRepository.save(dpt1);
-		System.out.println(dpt2);	
+		System.out.println(dpt2);
 	}
-	
+
 	@Test
-	void update() {
+	public void update() {
 		Department dpt1 = new Department();
 		dpt1.setName("Test2");
 		dpt1.setId(1l);
 		Department dpt2 = departmentRepository.save(dpt1);
-		System.out.println(dpt2);		
+		System.out.println(dpt2);
 	}
-	
+
 	@Test
-	void deleteById() {
+	public void deleteById() {
 		Long id = 1l;
 		departmentRepository.deleteById(id);
 	}
-	
+
 	@Test
-	void deleteAll() {
+	public void deleteAll() {
 		departmentRepository.deleteAllInBatch();
 	}
 }

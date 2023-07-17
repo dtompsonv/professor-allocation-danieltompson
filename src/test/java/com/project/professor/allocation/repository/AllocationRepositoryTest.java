@@ -1,7 +1,7 @@
 package com.project.professor.allocation.repository;
 
-import com.project.professor.allocation.entity.Allocation;
-import com.project.professor.allocation.entity.Department;
+import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 
-import java.util.List;
+import com.project.professor.allocation.entity.Allocation;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
@@ -26,5 +26,42 @@ public class AllocationRepositoryTest {
 	void findAll() {
 		List<Allocation> alloc = allocationRepository.findAll();
 		System.out.println(alloc);
+	}
+
+	@Test
+	void findById() {
+		Long id = 1l;
+		Optional<Allocation> alloc = allocationRepository.findById(id);
+		Allocation all = alloc.orElse(null);
+		System.out.println(all);
+	}
+
+	@Test
+	void create() {
+		Allocation alloc1 = new Allocation();
+		alloc1.setName("Test");
+		alloc1.setId(null);
+		Allocation alloc2 = allocationRepository.save(alloc1);
+		System.out.println(alloc2);
+	}
+
+	@Test
+	void update() {
+		Allocation alloc1 = new Allocation();
+		alloc1.setName("Test2");
+		alloc1.setId(1l);
+		Allocation alloc2 = allocationRepository.save(alloc1);
+		System.out.println(alloc2);
+	}
+
+	@Test
+	void deleteById() {
+		Long id = 1l;
+		allocationRepository.deleteById(id);
+	}
+
+	@Test
+	void deleteAll() {
+		allocationRepository.deleteAllInBatch();
 	}
 }

@@ -80,4 +80,9 @@ public class Allocation {
 		this.end = end;
 	}
 
+	public void setName(String string) {
+		// TODO Auto-generated method stub
+
+	}
+
 }
